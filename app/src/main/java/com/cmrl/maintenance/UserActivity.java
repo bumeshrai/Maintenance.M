@@ -22,6 +22,7 @@ import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONException;
@@ -125,8 +126,16 @@ public class UserActivity extends AppCompatActivity {
                             }
                         }
                     };
+
+                    Response.ErrorListener errorListener = new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            //Log.i("Volley", "Error");
+                        }
+                    };
                     // Volley Request
-                    UserLoginRequest loginRequest = new UserLoginRequest(username, password, latitude, longitude, responseListener);
+                    UserLoginRequest loginRequest = new UserLoginRequest(username, password, latitude, longitude,
+                            responseListener, errorListener);
                     RequestQueue queue = Volley.newRequestQueue(UserActivity.this);
                     queue.add(loginRequest);
                     //Log.i("values", "username: "+username+"/"+password+" location: "+latitude+"/"+longitude );

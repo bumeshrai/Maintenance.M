@@ -149,4 +149,12 @@ public class LocationActivity extends AppCompatActivity implements GoogleApiClie
             }
         });
     }
+
+
+    /*@Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(this);
+    }*/
+}
 }
