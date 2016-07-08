@@ -157,4 +157,3 @@ public class LocationActivity extends AppCompatActivity implements GoogleApiClie
         MultiDex.install(this);
     }*/
 }
-}
